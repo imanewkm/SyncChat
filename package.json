@@ -1,0 +1,15 @@
+{
+    "name": "sync-chat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "client": "cd frontend && npm start",
+        "server": "cd backend && nodemon server.js",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "devDependencies": {
+        "concurrently": "^6.5.1",
+        "nodemon": "^2.0.22"
+    }
+}
