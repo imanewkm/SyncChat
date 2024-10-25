@@ -1,0 +1,32 @@
+version: '3'
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - mern-network
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/mern-db
+    depends_on:
+      - mongo
+    networks:
+      - mern-network
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
